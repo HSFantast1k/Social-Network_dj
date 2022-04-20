@@ -125,3 +125,14 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+
+
+# Feedback Settings
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 465  # 2525
+EMAIL_HOST_USER = 'frombohdankovalsup@gmail.com'
+EMAIL_HOST_PASSWORD = '3HE9uEimfSzXYiR'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
