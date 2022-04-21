@@ -24,4 +24,7 @@ urlpatterns = [
           name='password_reset_confirm'),
      path('reset/done/', auth_views.PasswordResetCompleteView.as_view(),
           name='password_reset_complete'),
+     
+     # Обработчики регестраций новый пользователей
+     path('register/', views.register, name='register'), 
 ]
