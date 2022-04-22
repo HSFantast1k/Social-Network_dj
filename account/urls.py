@@ -8,6 +8,7 @@ urlpatterns = [
     path('', views.dashboard, name='dashboard'),
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('edit/', views.edit, name='edit'), 
 
     # Шаблоны для доступа к обработчикам смены пароля.
     path('password_change/', auth_views.PasswordChangeView.as_view(),
@@ -28,3 +29,4 @@ urlpatterns = [
      # Обработчики регестраций новый пользователей
      path('register/', views.register, name='register'), 
 ]
+
