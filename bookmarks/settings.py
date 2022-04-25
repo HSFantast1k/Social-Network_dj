@@ -25,7 +25,8 @@ SECRET_KEY = 'bhscxtq-e@5(p%#ixs10b*z(aa4i^4y2jv6q%&+)fmgph=x^0%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['mysite.com', 'localhost',
+                 '127.0.0.1', '1756-128-0-105-226.eu.ngrok.io']
 
 
 # Application definition
@@ -110,18 +111,18 @@ AUTHENTICATION_BACKENDS = [
     'social_core.backends.google.GoogleOAuth2',
 ]
 
-#Facebook
+# Facebook
 SOCIAL_AUTH_FACEBOOK_KEY = '734923770836114'
 SOCIAL_AUTH_FACEBOOK_SECRET = '447749cfffc8863f571dd0d74818f57d'
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
-#Twitter
-SOCIAL_AUTH_TWITTER_KEY = 'XXX' # Twitter Consumer Key
-SOCIAL_AUTH_TWITTER_SECRET = 'XXX' # Twitter Consumer Secret
+# Twitter
+SOCIAL_AUTH_TWITTER_KEY = 'XXX'  # Twitter Consumer Key
+SOCIAL_AUTH_TWITTER_SECRET = 'XXX'  # Twitter Consumer Secret
 
-#Google
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'XXX' # Google Consumer Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'XXX' # Google Consumer Secret
+# Google
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'XXX'  # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'XXX'  # Google Consumer Secret
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
@@ -144,7 +145,6 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
 
 
 LOGIN_REDIRECT_URL = 'dashboard'
