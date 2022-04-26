@@ -26,7 +26,7 @@ SECRET_KEY = 'bhscxtq-e@5(p%#ixs10b*z(aa4i^4y2jv6q%&+)fmgph=x^0%'
 DEBUG = True
 
 ALLOWED_HOSTS = ['mysite.com', 'localhost',
-                 '127.0.0.1', '1756-128-0-105-226.eu.ngrok.io']
+                 '127.0.0.1', '3b95-128-0-105-226.eu.ngrok.io']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'social_django',
     'images.apps.ImagesConfig',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
