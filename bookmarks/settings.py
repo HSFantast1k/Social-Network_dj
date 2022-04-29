@@ -42,8 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'social_django',
     'images.apps.ImagesConfig',
+    #'images.apps.ActionsConfig',
     'sorl.thumbnail',
 ]
+
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
