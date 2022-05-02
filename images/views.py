@@ -71,13 +71,13 @@ def image_list(request):
         # Если переданная страница не является числом, возвращаем первую.
         images = paginator.page(1)
     except EmptyPage:
-        if request.is_ajax():
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
             # Если получили AJAX-запрос с номером страницы, большим, чем их количество,
             # возвращаем пустую страницу.
             return HttpResponse('')
         # Если номер страницы больше, чем их количество, возвращаем последнюю.
         images = paginator.page(paginator.num_pages)
-    if request.is_ajax():
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         return render(request,
                       'images/image/list_ajax.html',
                       {'section': 'images', 'images': images})

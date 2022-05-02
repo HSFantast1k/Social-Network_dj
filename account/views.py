@@ -18,13 +18,16 @@ from actions.models import Action
 def dashboard(request):
     # По умолчанию отображаем все действия
     actions = Action.objects.exclude(user=request.user)
-    following_ids = request.user.following.values_list('id', flat=True)
+    following_ids = request.user.following.values_list('id',
+                                                       flat=True)
     if following_ids:
         # Если текущий пользователь подписался на кого-то,
         # отображаем только действия этих пользователей.
         actions = actions.filter(user_id__in=following_ids)
+    print(1)
     actions = actions.select_related('user', 'user__profile')\
         .prefetch_related('target')[:10]
+    print(actions)
     
     return render(request, 'account/dashboard.html', {'section': 'dashboard', 
                                                       'actions': actions})
@@ -50,11 +53,7 @@ def user_login(request):
         form = LoginForm()
     return render(request, 'account/login.html', {'form': form})
 
-
-@login_required
-def dashboard(request):
-    return render(request, 'account/dashboard.html', {'section': 'dashboard'})
-
+    
 
 def register(request):
     if request.method == "POST":

@@ -8,7 +8,7 @@
                 <a href="{{ user.get_absolute_url }}">
                     <img class="item-img" src="{{ im.url }}" alt="{{ user.get_full_name }}">
                 </a>
-            {% endthumnail %} 
+            {% endthumbnail %} 
         {% endif %} 
         {% if action.target %} 
             {% with target=action.target %}
@@ -17,7 +17,7 @@
                         <a href="{{ target.get_absolute_url }}">
                             <img class="item-img" src="{{ im.url }}">
                         </a>
-                    {% endthumnail %} 
+                    {% endthumbnail %} 
                 {% endif %} 
             {% endwith %} 
         {% endif %} 
