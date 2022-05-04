@@ -37,7 +37,17 @@ def image_create(request):
 
 def image_detail(request, id, slug):
     image = get_object_or_404(Image, id=id, slug=slug)
-    return render(request, 'images/image/detail.html', {'section': 'images', 'image': image})
+    # Увеличеваем общее кол-чи просмотров на 1.
+    """
+    total_views = r.incr('image:{}:views'.format(image.id))
+    r.zincrby('image_ranking', image.id, 1) 
+    'total_views': total_views
+    """
+    
+    # Увеличиваем рейтинг картинки на 1.
+    
+    return render(request, 'images/image/detail.html', {'section': 'images',
+                                                        'image': image,})
 
 
 @ajax_required
@@ -62,7 +72,18 @@ def image_like(request):
 
 @login_required
 def image_list(request):
+    images = Image.objects.order_by('-total_likes')
+    """
+    Сортировка по кол-чи лайков с использованием сигналов
+    images = Image.objects.order_by('-total_likes')
+    
+    Не ефективное и «дорогой» SQL-запрос
+    images_by_popularity = Image.objects.annotate(
+        likes=Count('users_like')).order_by('-likes')
+    
+    Без
     images = Image.objects.all()
+    """
     paginator = Paginator(images, 8)
     page = request.GET.get('page')
     try:
