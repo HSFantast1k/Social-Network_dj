@@ -170,3 +170,7 @@ EMAIL_HOST_USER = 'frombohdankovalsup@gmail.com'
 EMAIL_HOST_PASSWORD = '3HE9uEimfSzXYiR'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
+
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 0
